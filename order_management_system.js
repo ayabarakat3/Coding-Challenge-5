@@ -11,8 +11,28 @@ let inventory= [
 
 // Task 2: Create an Orders Array of Order Objects
 let orders = [];
-console.log("Orders array initialized:", orders);
-/* Statement has now been complete and tested.  
+console.log(orders)
+/* Array has now been complete.  
 Task 2 is now completed.*/
 
+
 // Task 3: Create a Function to Place an Order
+function placeOrder(customerName, orderedItem) {
+let product = inventory.find(p => p.name === orderedItem.name);
+if (!product) {
+console.log(`Product ${orderedItem.name} is not found in out inventory.`);
+return;}
+if (product.quantity < orderedItem.quantity) {
+console.log(`${orderedItem.name} does not have enough stock.`);
+return;}
+product.quantity -= orderedItem.quantity;
+// An if statement was used to determine stock status of chosen items. 
+let newOrder = {
+customerName: customerName,items: [orderedItem],
+status: "Pending"}; 
+orders.push(newOrder);
+console.log("Order placed:", newOrder);}
+// Function to display new orders has been created. 
+placeOrder("Aya", { name: "Spanish Latte", quantity: 1 });
+// Function is now tested and output meets expected outcome. 
+// Task 3 is now complete. 
