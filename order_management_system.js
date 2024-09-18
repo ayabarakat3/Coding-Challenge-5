@@ -10,17 +10,9 @@ let inventory= [
 // Task 1 is now completed.
 
 // Task 2: Create an Orders Array of Order Objects
-function displayProductDetails(inventory) {
-let stockStatus; {
-if (inventory.quantity > inventory.lowStockLevel) 
-stockStatus = "In Stock";
-else stockStatus = "Low Stock"}
-// An if else statement was used to set the code to display the items stock status. 
-console.log(`Name: ${inventory.name}`);
-console.log(`Price: ${inventory.price}`);
-console.log(`Quantity: ${inventory.quantity}`);
-console.log(`Stock Status: ${stockStatus}`);};
-displayProductDetails(inventory[4]);
-/* Item number four was chosen to display results. Output matches expected results when tested. 
-Statement has now been complete and tested. Code revealed accurate output. 
+let orders = [];
+console.log("Orders array initialized:", orders);
+/* Statement has now been complete and tested.  
 Task 2 is now completed.*/
+
+// Task 3: Create a Function to Place an Order
