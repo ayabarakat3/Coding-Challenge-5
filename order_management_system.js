@@ -64,7 +64,7 @@ function completeOrder(customerName) {
 let order = orders.find(o => o.customerName === customerName);
 if (order) {order.status = "Complete";
 console.log(`${customerName}'s order has been completed.`);} 
-else {console.log(`${customerName}'s order is not found.`);}}
+else {console.log(`Error: ${customerName}'s order is not found.`);}}
 /* Function created to find the order based on the customer's name. 
 Function set to display whether the customer's order has been completed or not. */
 completeOrder("Aya");
