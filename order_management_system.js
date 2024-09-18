@@ -59,4 +59,16 @@ console.log(total);
 // Function created to release total price. 
 // Task 4 is now complete. 
 
-
+// Task 5: Create a Function to Mark an Order as Completed
+function completeOrder(customerName) {
+let order = orders.find(o => o.customerName === customerName);
+if (order) {order.status = "Complete";
+console.log(`${customerName}'s order has been completed.`);} 
+else {console.log(`${customerName}'s order is not found.`);}}
+/* Function created to find the order based on the customer's name. 
+Function set to display whether the customer's order has been completed or not. */
+completeOrder("Aya");
+completeOrder("Reed");
+/* Function is now complete and has been tested. 
+Function displayed expected and accurate outcome.
+Task 5 is now complete. */
