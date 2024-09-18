@@ -36,3 +36,27 @@ console.log("Order placed:", newOrder);}
 placeOrder("Aya", { name: "Spanish Latte", quantity: 1 });
 // Function is now tested and output meets expected outcome. 
 // Task 3 is now complete. 
+
+// Task 4: Create a Function to Calculate Total for an Order
+function calculateOrderTotal(order) {
+let total = 0; 
+// Total was set to zero as a beginning point. As items get added, the total aount would change.
+order.items.forEach(item => {
+let product = inventory.find(p => p.name === item.name);
+// Function created to allow the products or items to be identified in the inventory.
+if (product) {
+total += product.price * item.quantity;}});
+// This functions determines the total price of the tem chosen and the quantity chosen. 
+return total;}
+let sampleOrder = {
+customerName: 'Danny',
+items: [{ name: 'Americano', quantity: 3}],
+status: 'pending'};
+// Sample data created to test function. 
+// Code tested and displays accurate results. 
+let total = calculateOrderTotal(sampleOrder);
+console.log(total);
+// Function created to release total price. 
+// Task 4 is now complete. 
+
+
