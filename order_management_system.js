@@ -87,4 +87,6 @@ placeOrder("Lily", { name: "Americano", quantity: 3 });
 checkPendingOrders();
 /* New orders were added to help test the function. 
 Function displays accurate and expected output. 
-Task 6 is now complete. */
+Task 6 is now complete. 
+All tasks have now been complete and tested. 
+All functions displayed accurate and correct outputs. */
