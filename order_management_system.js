@@ -11,7 +11,7 @@ let inventory= [
 
 // Task 2: Create an Orders Array of Order Objects
 let orders = [];
-console.log(orders)
+console.log("Orders initialized:", orders);
 /* Array has now been complete.  
 Task 2 is now completed.*/
 
@@ -20,7 +20,7 @@ Task 2 is now completed.*/
 function placeOrder(customerName, orderedItem) {
 let product = inventory.find(p => p.name === orderedItem.name);
 if (!product) {
-console.log(`Product ${orderedItem.name} is not found in out inventory.`);
+console.log(`Product ${orderedItem.name} is not found in our inventory.`);
 return;}
 if (product.quantity < orderedItem.quantity) {
 console.log(`${orderedItem.name} does not have enough stock.`);
@@ -28,12 +28,10 @@ return;}
 product.quantity -= orderedItem.quantity;
 // An if statement was used to determine stock status of chosen items. 
 let newOrder = {
-customerName: customerName,items: [orderedItem],
-status: "Pending"}; 
-orders.push(newOrder);
+customerName: customerName, items: [orderedItem], status: "Pending"}; 
+orders[orders.length] = newOrder; 
 console.log("Order placed:", newOrder);}
 // Function to display new orders has been created. 
-placeOrder("Aya", { name: "Spanish Latte", quantity: 1 });
 // Function is now tested and output meets expected outcome. 
 // Task 3 is now complete. 
 
@@ -72,3 +70,21 @@ completeOrder("Reed");
 /* Function is now complete and has been tested. 
 Function displayed expected and accurate outcome.
 Task 5 is now complete. */
+
+// Task 6: Create a Function to Check Pending Orders
+function checkPendingOrders() {
+if (orders.length === 0) {
+console.log("0 pending orders.");
+// Output message "O pending orders" is set to be displayed if no orders are pending.
+return;}
+orders.forEach(order => {
+if (order.status === "Pending") {
+console.log(`Customer: ${order.customerName}`);}});}
+// Output message is set to display customer'sname and order if any orders are pending. 
+checkPendingOrders();
+placeOrder("Tina", { name: "Spanish Latte", quantity: 1 });
+placeOrder("Lily", { name: "Americano", quantity: 3 });
+checkPendingOrders();
+/* New orders were added to help test the function. 
+Function displays accurate and expected output. 
+Task 6 is now complete. */
