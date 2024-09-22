@@ -43,26 +43,30 @@ order.items.forEach(item => {
 let product = inventory.find(p => p.name === item.name);
 // Function created to allow the products or items to be identified in the inventory.
 if (product) {
-total += product.price * item.quantity;}});
+total += product.price * item.quantity;}
+else {
+console.log(`Error: ${item.name} is not found in our menu.`);
+}});
 // This functions determines the total price of the tem chosen and the quantity chosen. 
 return total;}
-let sampleOrder = {
-customerName: 'Danny',
-items: [{ name: 'Americano', quantity: 3}],
-status: 'pending'};
-// Sample data created to test function. 
-// Code tested and displays accurate results. 
-let total = calculateOrderTotal(sampleOrder);
-console.log(total);
+orders.forEach(order => {
+let total = calculateOrderTotal(order);
+console.log(`${order.customerName}'s total is $${total}.`);});
 // Function created to release total price. 
 // Task 4 is now complete. 
 
 // Task 5: Create a Function to Mark an Order as Completed
 function completeOrder(customerName) {
-let order = orders.find(o => o.customerName === customerName);
-if (order) {order.status = "Complete";
-console.log(`${customerName}'s order has been completed.`);} 
-else {console.log(`Error: ${customerName}'s order is not found.`);}}
+let order = orders.find(o => o.customerName.toLowerCase() === customerName.toLowerCase());
+if (!order) {
+console.log(`Error: ${customerName}'s order is not found. Double-check the spelling or place a new order.`);
+// Message used to display if order is not found in the system.
+return;}
+if (order.status === "Complete") {
+console.log(`${customerName}'s order is already completed.`);} 
+else {
+order.status = "Complete";// Message used to display that the order is complete, if it is. 
+console.log(`${customerName}'s order has been completed.`);}}
 /* Function created to find the order based on the customer's name. 
 Function set to display whether the customer's order has been completed or not. */
 completeOrder("Aya");
@@ -77,10 +81,21 @@ if (orders.length === 0) {
 console.log("0 pending orders.");
 // Output message "O pending orders" is set to be displayed if no orders are pending.
 return;}
+let hasPendingOrders = false;
+// This function is used to check for pending orders, if any. 
 orders.forEach(order => {
 if (order.status === "Pending") {
-console.log(`Customer: ${order.customerName}`);}});}
-// Output message is set to display customer'sname and order if any orders are pending. 
+hasPendingOrders = true;
+// This function is used to check for pending orders again and determine if any, and how to display results. 
+console.log(`Customer: ${order.customerName}`);
+// This function is meant to display customer name along with their order.
+order.items.forEach(item => {
+console.log(` - Item: ${item.name}, Quantity: ${item.quantity}`);});
+// Function used to inform the code of what to display and how to do so. 
+}});
+if (!hasPendingOrders) {
+console.log("No pending orders found.");}}
+// Message set to be displayed when no pending orders are found.
 checkPendingOrders();
 placeOrder("Tina", { name: "Spanish Latte", quantity: 1 });
 placeOrder("Lily", { name: "Americano", quantity: 3 });
