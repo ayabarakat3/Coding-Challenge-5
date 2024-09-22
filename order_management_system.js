@@ -90,7 +90,7 @@ hasPendingOrders = true;
 console.log(`Customer: ${order.customerName}`);
 // This function is meant to display customer name along with their order.
 order.items.forEach(item => {
-console.log(` - Item: ${item.name}, Quantity: ${item.quantity}`);});
+console.log(`Item: ${item.name}, Quantity: ${item.quantity}`);});
 // Function used to inform the code of what to display and how to do so. 
 }});
 if (!hasPendingOrders) {
